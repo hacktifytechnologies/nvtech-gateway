@@ -1,10 +1,10 @@
-- name: 'HACKTIFY: Setup NVTech Developer Utility Gateway Lab'
+- name: 'HACKTIFY: Setup nvtech gateway Lab'
   id: e0f068de-f243-cac2-2e6f-9303568a9bfa
   description: >-
     The NVTech Developer Utility Gateway is running on port 80. This is the
     final stage of the NVTech series. The platform is a developer utility
     service with a request status lookup feature and several internal API
-    routes. Begin by performing thorough reconnaissance — check standard
+    routes. Begin by performing thorough reconnaissance, check standard
     discovery paths and the page source for any references to hidden
     endpoints. Identify a vulnerable input on the application, extract a
     secret from the backend database, and use it to reach an internal
@@ -20,16 +20,13 @@
     - name: sh
       platform: linux
       command: |
-        git clone https://github.com/hacktifytechnologies/nvtech-gateway /opt/hacktify/nvtech-gateway
-        cd /opt/hacktify/nvtech-gateway
-        chmod +x setup.sh
-        bash setup.sh -a
+        git clone https://github.com/hacktifytechnologies/nvtech-gateway /opt/hacktify/nvtech-gateway && cd /opt/hacktify/nvtech-gateway && docker compose up -d --build && echo 'Lab deployment complete'
       code: null
       language: null
       build_target: null
       payloads: []
       uploads: []
-      timeout: 300
+      timeout: 600
       parsers: []
       cleanup: []
       variations: []
